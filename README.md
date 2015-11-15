@@ -5,6 +5,8 @@ ACBrNFe.DANFE.Rave
 
 - Compatibilidade com o trunk2 do projeto ACBr.
 
+- Compatível com Rave em arquivo e Rave CodeBase.
+
 - Testes feitos com Delphi 7 e XE2.
 
 **Instruções para compilar**
@@ -15,7 +17,9 @@ ACBrNFe.DANFE.Rave
 - Compilar e instalar.
 
 **Utilização**
-- Duas formas de utilização são possíveis com o componente RaveCB (Sem o uso do arquivo de relatório .rav) ou Rave (com o uso do arquivo de relatório .rav). 
+- Duas formas de utilização são possíveis com o componente:
+  - ACBrNFeDANFERaveCB (Rave Code Base, sem o uso do arquivo de relatório .rav)
+  - ACBrNFeDANFERave (com o uso do arquivo de relatório .rav). 
 
 **Exemplo**
 
