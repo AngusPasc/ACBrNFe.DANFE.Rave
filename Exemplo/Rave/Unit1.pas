@@ -74,7 +74,7 @@ begin
       0: ACBrNFe1.NotasFiscais.Imprimir;
       1:
       begin
-         ACBrNFe1.Configuracoes.Geral.PathSalvar := ExtractFilePath(Application.ExeName);
+         ACBrNFe1.Configuracoes.Arquivos.PathSalvar := ExtractFilePath(Application.ExeName);
          ACBrNFe1.NotasFiscais.ImprimirPDF;
       end;
     end;
