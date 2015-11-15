@@ -5,11 +5,30 @@ ACBrNFe.DANFE.Rave
 
 - Compatibilidade com o trunk2 do projeto ACBr.
 
-- Testes feitos com Delphi XE
+- Testes feitos com Delphi 7 e XE2.
 
 **Instruções para compilar**
 - Copiar a pasta "Fontes" deste projeto dentro da pasta "..\ACBr\Fontes\ACBrDFe\ACBrNFe\DANFE\NFe\" da pasta ACBr.
-- Copiar a pasta "Pacotes" deste projeto dentro da pasta "..\C:\SIS\ACBr\Pacotes\Delphi\ACBrDFe\ACBrNFe\DANFE\NFe\" da pasta ACBr.
-- Incluir no library path do Delphi o path: "(seu root)\ACBr\Fontes\ACBrDFe\ACBrNFe\DANFE\NFe\Rave"
+- Copiar a pasta "Pacotes" deste projeto dentro da pasta "..\ACBr\Pacotes\Delphi\ACBrDFe\ACBrNFe\DANFE\NFe\" da pasta ACBr.
+- Incluir no library path do Delphi o path: "..\ACBr\Fontes\ACBrDFe\ACBrNFe\DANFE\NFe\Rave"
 - Abrir um dos arquivos *.dpk (ACBr_NFeDanfeRV.dpk ou ACBr_NFeDanfeRVCodeBase.dpk) da pasta "..\ACBr\Pacotes\Delphi\ACBrDFe\ACBrNFe\DANFE\NFe\Rave".
 - Compilar e instalar.
+
+**Utilização**
+- Duas formas de utilização são possíveis com o componente RaveCB (Sem o uso do arquivo de relatório .rav) ou Rave (com o uso do arquivo de relatório .rav). 
+
+**Exemplo**
+
+Imprimir a DANFE:
+```shell
+ACBrNFe1.NotasFiscais.Clear;
+ACBrNFe1.NotasFiscais.LoadFromFile("..\ArquivosXML\12345678901234567890123456789012345678901234-nfe.xml");
+ACBrNFe1.NotasFiscais.Imprimir;
+```
+
+Gerar a DANFE em PDF:
+```shell
+ACBrNFe1.NotasFiscais.Clear;
+ACBrNFe1.NotasFiscais.LoadFromFile("..\ArquivosXML\12345678901234567890123456789012345678901234-nfe.xml");
+ACBrNFe1.NotasFiscais.ImprimirPDF;
+```
