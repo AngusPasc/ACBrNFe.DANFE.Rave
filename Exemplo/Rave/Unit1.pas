@@ -11,7 +11,7 @@ uses ShellAPI, Windows, Messages, SysUtils, Variants, Classes, Graphics,
      // ACBr
      synacode, ACBrBase, ACBrNFe, pcnNFe, pcnConversao, ACBrUtil, pcnAuxiliar,
      // ACBr Rave
-     ACBrNFeDANFEClass, ACBrNFeDANFERave, ACBrNFeDANFERaveCB;
+     ACBrNFeDANFEClass, ACBrNFeDANFERave, ACBrNFeDANFERaveCB, ACBrDFe;
 
 type
 
