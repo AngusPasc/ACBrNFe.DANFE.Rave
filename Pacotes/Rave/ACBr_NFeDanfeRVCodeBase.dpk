@@ -90,7 +90,9 @@ contains
   ACBrDANFeCBRave in '..\..\..\..\..\..\..\Fontes\ACBrDFe\ACBrNFe\DANFE\NFe\Rave\ACBrDANFeCBRave.pas',
   ACBrDANFeCBRavePaisagem in '..\..\..\..\..\..\..\Fontes\ACBrDFe\ACBrNFe\DANFE\NFe\Rave\ACBrDANFeCBRavePaisagem.pas',
   ACBrDANFeCBRaveRetrato in '..\..\..\..\..\..\..\Fontes\ACBrDFe\ACBrNFe\DANFE\NFe\Rave\ACBrDANFeCBRaveRetrato.pas',
+  ACBrDANFeEventoRaveRetrato in '..\..\..\..\..\..\..\Fontes\ACBrDFe\ACBrNFe\DANFE\NFe\Rave\ACBrDANFeEventoRaveRetrato.pas',
+  ACBrDANFeInutilRaveRetrato in '..\..\..\..\..\..\..\Fontes\ACBrDFe\ACBrNFe\DANFE\NFe\Rave\ACBrDANFeInutilRaveRetrato.pas',
   ACBrNFeDANFECBRVReg in '..\..\..\..\..\..\..\Fontes\ACBrDFe\ACBrNFe\DANFE\NFe\Rave\ACBrNFeDANFECBRVReg.pas',
   ACBrNFeDANFERaveCB in '..\..\..\..\..\..\..\Fontes\ACBrDFe\ACBrNFe\DANFE\NFe\Rave\ACBrNFeDANFERaveCB.pas';
-
 end.
+
