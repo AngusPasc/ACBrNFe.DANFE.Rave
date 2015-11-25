@@ -86,8 +86,8 @@ requires
   ACBr_NFe;
 
 contains
-  ACBrNFeDANFERVReg in '..\..\..\Fontes\ACBrNFe2\ACBrNFeDANFERVReg.pas',
-  ACBrNFeDANFERave in '..\..\..\Fontes\ACBrNFe2\ACBrNFeDANFERave.pas',
-  ACBrNFeDANFERaveDM in '..\..\..\Fontes\ACBrNFe2\ACBrNFeDANFERaveDM.pas' {dmACBrNFeRave: TDataModule};
+  ACBrNFeDANFERVReg in '..\..\Fontes\Rave\ACBrNFeDANFERVReg.pas',
+  ACBrNFeDANFERave in '..\..\Fontes\Rave\ACBrNFeDANFERave.pas',
+  ACBrNFeDANFERaveDM in '..\..\Fontes\Rave\ACBrNFeDANFERaveDM.pas' {dmACBrNFeRave: TDataModule};
 
 end.
