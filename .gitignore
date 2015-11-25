@@ -1,0 +1,8 @@
+*.dcu
+*.local
+*.identcache
+*.res
+ACBr_NFeDanfeRV.dproj
+ACBr_NFeDanfeRVCodeBase.dproj
+*.drc
+*.map
