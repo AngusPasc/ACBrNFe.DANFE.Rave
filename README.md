@@ -9,7 +9,7 @@ ACBrNFe.DANFE.Rave
 
 - Compatível com RaveReport em arquivo e Rave CodeBase.
 
-- Testes feitos com Delphi 7 e Delphi XE2.
+- Testes feitos com Delphi XE2.
 
 **Instruções para compilar o ACBr com DANFE em Rave**
 
