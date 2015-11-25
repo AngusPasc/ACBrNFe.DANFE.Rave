@@ -1,8 +1,9 @@
 object Form1: TForm1
-  Left = 427
-  Top = 111
+  Left = 466
+  Top = 169
+  BorderStyle = bsSingle
   Caption = 'ACBrNFe - Impress'#227'o DANFE em RaveReport'
-  ClientHeight = 386
+  ClientHeight = 324
   ClientWidth = 524
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -15,8 +16,8 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object btnImprimir: TButton
-    Left = 176
-    Top = 323
+    Left = 184
+    Top = 259
     Width = 155
     Height = 49
     Caption = 'Gerar DANFE'
@@ -92,8 +93,8 @@ object Form1: TForm1
       'Arquivos NFE (*-nfe.XML)|*-nfe.XML|Arquivos XML (*.XML)|*.XML|To' +
       'dos os Arquivos (*.*)|*.*'
     Title = 'Selecione a NFe'
-    Left = 152
-    Top = 256
+    Left = 127
+    Top = 272
   end
   object ACBrNFe1: TACBrNFe
     Configuracoes.Geral.SSLLib = libCapicomDelphiSoap
@@ -105,8 +106,8 @@ object Form1: TForm1
     Configuracoes.WebServices.AguardarConsultaRet = 15000
     Configuracoes.WebServices.AjustaAguardaConsultaRet = True
     Configuracoes.WebServices.QuebradeLinha = '|'
-    Left = 77
-    Top = 257
+    Left = 52
+    Top = 273
   end
   object ACBrNFeDANFERave1: TACBrNFeDANFERave
     MostrarPreview = True
@@ -146,8 +147,8 @@ object Form1: TForm1
     TamanhoFonte_RazaoSocial = 12
     TamanhoFonte_ANTT = 10
     TributosPercentual = ptValorProdutos
-    Left = 248
-    Top = 256
+    Left = 371
+    Top = 266
   end
   object ACBrNFeDANFERaveCB1: TACBrNFeDANFERaveCB
     MostrarPreview = True
@@ -194,7 +195,7 @@ object Form1: TForm1
     TributosPercentual = ptValorProdutos
     ImprimirDesconto = True
     ImprimirTributosItem = False
-    Left = 376
-    Top = 256
+    Left = 422
+    Top = 266
   end
 end
