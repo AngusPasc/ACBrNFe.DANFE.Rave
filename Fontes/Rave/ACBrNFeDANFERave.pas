@@ -54,7 +54,7 @@ unit ACBrNFeDANFERave;
 
 interface
 
-uses Forms, SysUtils, Classes, Graphics,
+uses Vcl.Forms, SysUtils, Classes, Vcl.Graphics,
   RpBase, RpCon, RpConDS, RpDefine, RpDevice, RpRave, RpSystem, RvClass,
   RvCsData, RvCsDraw, RvCsStd, RvCsRpt, RvData, RvDefine, RvUtil, RVProj,
   RvDirectDataView, RVCsBars, RVDataField,
@@ -91,7 +91,7 @@ type
 
 implementation
 
-uses ACBrNFe, ACBrUtil, ACBrDFeUtil, StrUtils, Dialogs;
+uses ACBrNFe, ACBrUtil, ACBrDFeUtil, StrUtils, Vcl.Dialogs;
 
 constructor TACBrNFeDANFERave.Create(AOwner: TComponent);
 begin

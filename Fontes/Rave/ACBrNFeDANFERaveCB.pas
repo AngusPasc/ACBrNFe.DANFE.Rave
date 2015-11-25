@@ -47,7 +47,7 @@ unit ACBrNFeDANFERaveCB;
 
 interface
 
-uses Forms, SysUtils, Classes, Graphics,
+uses Vcl.Forms, SysUtils, Classes, Vcl.Graphics,
   RpDefine, RpDevice, RVClass, RVProj, RVCsBars, RVCsStd, RVCsData,
   RvDirectDataView, RVDataField,
   {$IFNDEF COMPILER16} JPEG, {$ELSE} Vcl.Imaging.jpeg, {$ENDIF}
@@ -102,7 +102,7 @@ type
 
 implementation
 
-uses ACBrNFe, ACBrUtil, ACBrDFeUtil, StrUtils, Dialogs;
+uses ACBrNFe, ACBrUtil, ACBrDFeUtil, StrUtils, Vcl.Dialogs;
 
 function TACBrNFeDANFERaveCB.BMPtoJPGString(aBMPFile: string): string;
 var

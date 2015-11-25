@@ -47,9 +47,9 @@ unit ACBrDANFeCBRave;
 
 interface
 
-uses Graphics, Forms, Windows, SysUtils, Classes,
-     Variants, Math, StdCtrls, DB, Dialogs,
-     Controls, ExtCtrls, Mask, MaskUtils,
+uses Vcl.Graphics, Vcl.Forms, Windows, SysUtils, Classes,
+     Variants, Math, Vcl.StdCtrls, DB, Vcl.Dialogs,
+     Vcl.Controls, Vcl.ExtCtrls, Vcl.Mask, MaskUtils,
      {$IFNDEF COMPILER16} JPEG, {$ELSE} Vcl.Imaging.jpeg, {$ENDIF}
      RpDefine, RpBase, RpSystem, RpBars, RpMemo,
      RpRenderText, RpRenderRTF, RpRenderHTML, RpRender, RpRenderPDF,
@@ -76,7 +76,7 @@ type
   TDANFeRave = class(TRvSystem)
      procedure RaveBeforePrint(Sender: TObject);
      procedure RaveDecodeImage(Sender: TObject; ImageStream: TStream;
-                  ImageType: String; Bitmap: Graphics.TBitmap);
+                  ImageType: String; Bitmap: Vcl.Graphics.TBitmap);
      procedure RavePrint(Sender: TObject);
   private
      FACBrNFe:TACBrNFe;
@@ -177,7 +177,7 @@ type
   TEventoRave = class(TRvSystem)
      procedure RaveBeforePrint(Sender: TObject);
      procedure RaveDecodeImage(Sender: TObject; ImageStream: TStream;
-                  ImageType: String; Bitmap: Graphics.TBitmap);
+                  ImageType: String; Bitmap: Vcl.Graphics.TBitmap);
      procedure RavePrint(Sender: TObject);
   private
      FACBrNFe:TACBrNFe;
@@ -231,7 +231,7 @@ type
   TInutilizacaoRave = class(TRvSystem)
      procedure RaveBeforePrint(Sender: TObject);
      procedure RaveDecodeImage(Sender: TObject; ImageStream: TStream;
-                  ImageType: String; Bitmap: Graphics.TBitmap);
+                  ImageType: String; Bitmap: Vcl.Graphics.TBitmap);
      procedure RavePrint(Sender: TObject);
   private
      FACBrNFe:TACBrNFe;
@@ -936,7 +936,7 @@ begin
 end;
 
 procedure TDANFeRave.RaveDecodeImage(Sender: TObject; ImageStream: TStream;
-  ImageType: String; Bitmap: Graphics.TBitmap);
+  ImageType: String; Bitmap: Vcl.Graphics.TBitmap);
 var Image: TJPEGImage;
 begin
   If ImageType = 'JPG' then begin
@@ -1119,7 +1119,7 @@ begin
 end;
 
 procedure TEventoRave.RaveDecodeImage(Sender: TObject;
-  ImageStream: TStream; ImageType: String; Bitmap: Graphics.TBitmap);
+  ImageStream: TStream; ImageType: String; Bitmap: Vcl.Graphics.TBitmap);
 var Image: TJPEGImage;
 begin
   If ImageType = 'JPG' then begin
@@ -1272,7 +1272,7 @@ begin
 end;
 
 procedure TInutilizacaoRave.RaveDecodeImage(Sender: TObject;
-  ImageStream: TStream; ImageType: String; Bitmap: Graphics.TBitmap);
+  ImageStream: TStream; ImageType: String; Bitmap: Vcl.Graphics.TBitmap);
 var Image: TJPEGImage;
 begin
   If ImageType = 'JPG' then begin

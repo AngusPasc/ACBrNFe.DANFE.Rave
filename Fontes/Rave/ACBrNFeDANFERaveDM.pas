@@ -54,10 +54,10 @@ unit ACBrNFeDANFERaveDM;
 
 interface
 
-uses Windows, Dialogs,
-  Forms, SysUtils, Classes, StdCtrls,
+uses Windows, Vcl.Dialogs,
+  Vcl.Forms, SysUtils, Classes, Vcl.StdCtrls,
   RpRave, RpBase, RpSystem, RpDefine, RpCon, RpRender, RpRenderPDF,
-  pcnNFe, pcnConversao, ACBrNFeDANFEClass;
+  pcnNFe, pcnConversao, pcnConversaoNFe, ACBrUtil, ACBrValidador, ACBrNFeDANFEClass;
 
 type
   TdmACBrNFeRave = class( TDataModule )
@@ -281,7 +281,7 @@ begin
       Connection.WriteStrData('', FormatarCEP(Poem_Zeros(CEP,8)));
       Connection.WriteStrData('', inttostr(CPais));
       Connection.WriteStrData('', XPais);
-      Connection.WriteStrData('', NotaUtil.FormatarFone(Fone));
+      Connection.WriteStrData('', FormatarFone(Fone));
     end;
     Connection.WriteStrData('', IE);
   end;
@@ -401,10 +401,10 @@ begin
       Connection.WriteStrData('', inttostr(CMun));
       Connection.WriteStrData('', CollateBr(XMun));
       Connection.WriteStrData('', UF);
-      Connection.WriteStrData('', NotaUtil.FormatarCEP(Poem_Zeros(CEP,8)));
+      Connection.WriteStrData('', FormatarCEP(Poem_Zeros(CEP,8)));
       Connection.WriteStrData('', inttostr(CPais));
       Connection.WriteStrData('', XPais);
-      Connection.WriteStrData('', NotaUtil.FormatarFone(Fone));
+      Connection.WriteStrData('', FormatarFone(Fone));
     end;
     Connection.WriteStrData('', IE);
     Connection.WriteStrData('', IM);
@@ -458,11 +458,11 @@ begin
     Connection.WriteFloatData('', StringToFloatDef(floattostr(VTotTrib),0));
     if VTotTrib <> 0 then
     begin
-      lVTotTrib :=FormatFloat(vTotTrib);
+      lVTotTrib :=FormatFloat('#,##0.00', vTotTrib);
       if (TributosPercentual = ptValorProdutos) and (VProd > 0) then
-        lVTotTrib :=lVTotTrib + '('+FormatFloat((vTotTrib*100)/( VProd - VDesc ))+'%)'
+        lVTotTrib :=lVTotTrib + '('+FormatFloat('#,##0.00', (vTotTrib*100)/( VProd - VDesc ))+'%)'
       else if (TributosPercentual = ptValorNF) and (VNF > 0) then
-        lVTotTrib :=lVTotTrib + '('+FormatFloat((vTotTrib*100)/( VNF ))+'%)';
+        lVTotTrib :=lVTotTrib + '('+FormatFloat('#,##0.00', (vTotTrib*100)/( VNF ))+'%)';
     end
     else
       lVTotTrib := '';
@@ -589,10 +589,10 @@ begin
                      with Prod.med.Items[j] do
                      begin
                         vTemp2.Add('-LOTE: '+nLote);
-                        vTemp2.Add(' QTDADE: '+FormatFloat(qLote));
-                        vTemp2.Add(' FABR.: '+FormatDate(DateToStr(dFab)));
-                        vTemp2.Add(' VAL.: '+FormatDate(DateToStr(dVal)));
-                        vTemp2.Add(IfThen(vPMC>0,' PMC: '+FormatFloat(vPMC),''));
+                        vTemp2.Add(' QTDADE: '+FormatFloat('0', qLote));
+                        vTemp2.Add(' FABR.: '+FormatDateBr(dFab));
+                        vTemp2.Add(' VAL.: '+FormatDateBr(dVal));
+                        vTemp2.Add(IfThen(vPMC>0,' PMC: '+FormatFloat('0', vPMC),''));
                     end;
                  end;
 
@@ -649,13 +649,13 @@ begin
           begin
             if vDesc > 0 then
              begin
-               Connection.WriteStrData('', FormatFloat({RoundTo(}100-((((VUnCom*QCom)-vDesc)/(VUnCom*QCom))*100){,-1)})+'%' );
+               Connection.WriteStrData('', FormatFloat('#,##0.00', {RoundTo(}100-((((VUnCom*QCom)-vDesc)/(VUnCom*QCom))*100){,-1)})+'%' );
              end
             else
-               Connection.WriteStrData('', FormatFloat(vDesc));
+               Connection.WriteStrData('', FormatFloat('#,##0.00', vDesc));
           end
          else
-            Connection.WriteStrData('', FormatFloat(vDesc));
+            Connection.WriteStrData('', FormatFloat('#,##0.00', vDesc));
          with Imposto.ICMS do
          begin
            //IfThen(orig = oeNacional,'0',IfThen(orig = oeEstrangeiraImportacaoDireta,'1','2')));
@@ -926,7 +926,7 @@ begin
   if DANFEClassOwner.ExibirResumoCanhoto then
   begin
      if EstaVazio(DANFEClassOwner.ExibirResumoCanhoto_Texto) then
-        vResumo:='Emissão: '+FormatDate(DateToStr(FNFe.Ide.DEmi))+'  Dest/Reme: '+FNFe.Dest.XNome+'  Valor Total: '+FormatFloat(FNFe.Total.ICMSTot.VNF)
+        vResumo:='Emissão: '+FormatDateBr(FNFe.Ide.DEmi)+'  Dest/Reme: '+FNFe.Dest.XNome+'  Valor Total: '+FormatFloat('#,##0.00', FNFe.Total.ICMSTot.VNF)
      else
         vResumo:=DANFEClassOwner.ExibirResumoCanhoto_Texto;
   end;
@@ -1037,14 +1037,14 @@ begin
    end
    else
    begin
-      vChave_Contingencia:=NotaUtil.GerarChaveContingencia(FNFe);
+      vChave_Contingencia := TACBrNFe(NFe).GerarChaveContingencia(FNFe);
       Connection.WriteStrData('', 'CHAVE DE ACESSO');
       Connection.WriteStrData('', vChave_Contingencia);
       if ((FNFe.Ide.tpEmis=teContingencia) or
           (FNFe.Ide.tpEmis=teFSDA)) then
       begin
          Connection.WriteStrData('', 'DADOS DA NF-E');
-         Connection.WriteStrData('', NotaUtil.FormatarChaveContigencia(vChave_Contingencia));
+         Connection.WriteStrData('', vChave_Contingencia);
       end;
    end;
 
@@ -1087,7 +1087,7 @@ begin
   begin
 //    Connection.WriteStrData('', IntToStr(Versao));
     Connection.WriteStrData('', OnlyNumber(Id));
-    Connection.WriteStrData('', NotaUtil.FormatarChaveAcesso(Id));
+    Connection.WriteStrData('', FormatarChaveAcesso(Id));
   end;
 
   with FNFe.Ide do
@@ -1099,8 +1099,8 @@ begin
     Connection.WriteStrData('', inttostr(Modelo));
     Connection.WriteStrData('', inttostr(Serie));
     Connection.WriteStrData('', FormatarNumeroDocumentoFiscal(inttostr(NNF)));
-    Connection.WriteStrData('', FormatDate(datetostr(DEmi)));
-    Connection.WriteStrData('', IfThen(DSaiEnt <> 0, FormatDate(datetostr(DSaiEnt))));
+    Connection.WriteStrData('', FormatDateBr(DEmi));
+    Connection.WriteStrData('', IfThen(DSaiEnt <> 0, FormatDateBr(DSaiEnt)));
     Connection.WriteStrData('', IfThen(TpNF=tnEntrada,'0','1'));
     Connection.WriteStrData('', inttostr(CMunFG));
     Connection.WriteStrData('', IfThen(TpImp=tiRetrato,'1','2'));
@@ -1138,7 +1138,7 @@ begin
   with FNFe.Cobr.Dup[Connection.DataIndex] do
   begin
     Connection.WriteStrData('', NDup);
-    Connection.WriteStrData('', FormatDate(datetostr(DVenc)));
+    Connection.WriteStrData('', FormatDateBr(DVenc));
     Connection.WriteFloatData('', StringToFloatDef(floattostr(VDup),0));
   end;
 end;

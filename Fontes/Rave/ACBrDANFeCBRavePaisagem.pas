@@ -47,9 +47,9 @@ unit ACBrDANFeCBRavePaisagem;
 
 interface
 
-uses Graphics, Forms, Windows, SysUtils, Classes,
-     Variants, DBClient, Math, StdCtrls, DB, Dialogs,
-     Controls, ExtCtrls, Mask, MaskUtils, DateUtils,
+uses Vcl.Graphics, Vcl.Forms, Windows, SysUtils, Classes,
+     Variants, DBClient, Math, Vcl.StdCtrls, DB, Vcl.Dialogs,
+     Vcl.Controls, Vcl.ExtCtrls, Vcl.Mask, MaskUtils, DateUtils,
      {$IFNDEF COMPILER16} JPEG, {$ELSE} Vcl.Imaging.jpeg, {$ENDIF}
      RpDefine, RpBase, RpSystem, RpBars, RpMemo,
      RpRenderText, RpRenderRTF, RpRenderHTML, RpRender, RpRenderPDF,
@@ -679,16 +679,11 @@ begin
        Box([fsTop,fsLeft],XPos,YPos,43,aWidthTituloBloco,'Fone / Fax',FormatarFone(FONE),taCenter);
        Box([fsTop,fsLeft],XPos,YPos,13,aWidthTituloBloco,'Estado',UF,taCenter);
        Box([fsTop,fsLeft],XPos,YPos,38,aWidthTituloBloco,'Inscrição Estadual',Dest.IE,taCenter);
-
-//       if ide.hSaiEnt=0 then
-//          Box([fsTop,fsLeft],XPos,YPos,21,aWidthTituloBloco,'Hora de '+vEntSai,'',taCenter,True)
-//       else
-//          Box([fsTop,fsLeft],XPos,YPos,21,aHeigthPadrao,'Hora de '+vEntSai,TimeToStr(ide.hSaiEnt),taCenter,True);
-		if infNFe.versao = 2.00 then
-			vSaiEnt := ifthen(ide.hSaiEnt = 0, '', TimeToStr(ide.hSaiEnt))
-		else
-			vSaiEnt := ifthen(TimeOf(ide.dSaiEnt)=0, '', TimeToStr(ide.dSaiEnt));
-		Box([fsTop,fsLeft],XPos,YPos,21,aHeigthPadrao,'Hora de '+vEntSai, vSaiEnt ,taCenter,True);
+     		if infNFe.versao = 2.00 then
+     		   vSaiEnt := ifthen(ide.hSaiEnt = 0, '', TimeToStr(ide.hSaiEnt))
+     		else
+     			  vSaiEnt := ifthen(TimeOf(ide.dSaiEnt)=0, '', TimeToStr(ide.dSaiEnt));
+		     Box([fsTop,fsLeft],XPos,YPos,21,aHeigthPadrao,'Hora de '+vEntSai, vSaiEnt ,taCenter,True);
       end;
      Result:=YPos;
      TituloDoBloco([],PosY,PosX,YPos,'DESTINATÁRIO /','REMETENTE');
