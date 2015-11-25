@@ -1,0 +1,6 @@
+
+A fazer:
+
+ * Correção dos títulos com acentuação que estão em lowercase.
+	* Quando o campo "Data de Saída" estiver em branco não mostrar a data 31/12/1899
+ * Criar instalador para o componente.
