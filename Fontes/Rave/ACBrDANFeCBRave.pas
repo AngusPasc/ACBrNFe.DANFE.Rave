@@ -53,7 +53,7 @@ uses Vcl.Graphics, Vcl.Forms, Windows, SysUtils, Classes,
      {$IFNDEF COMPILER16} JPEG, {$ELSE} Vcl.Imaging.jpeg, {$ENDIF}
      RpDefine, RpBase, RpSystem, RpBars, RpMemo,
      RpRenderText, RpRenderRTF, RpRenderHTML, RpRender, RpRenderPDF,
-     ACBrNFe, ACBrDFeUtil, pcnConversao, pcnNFe, ACBRUtil;
+     ACBrNFe, ACBrDFeUtil, pcnConversao, pcnNFe, ACBrUtil;
 
 const aHeigthPadrao:Double=5.7;
       FontSizeIdentDoc_DANFE:Integer=12;

@@ -59,7 +59,7 @@ procedure ImprimirEventoRetrato(aRaveSystem:TEventoRave);
 
 implementation
 
-uses pcnEnvEventoNFe, acbrutil, ACBrValidador;
+uses pcnEnvEventoNFe, ACBrUtil, ACBrValidador;
 
 procedure ImprimirEventoRetrato(aRaveSystem:TEventoRave);
 var

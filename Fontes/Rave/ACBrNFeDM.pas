@@ -377,7 +377,7 @@ begin
       Connection.WriteStrData('', FormatarCEP(inttostr(CEP)));
       Connection.WriteStrData('', inttostr(CPais));
       Connection.WriteStrData('', XPais);
-      Connection.WriteStrData('', NotaUtil.FormatarFone(Fone));
+      Connection.WriteStrData('', FormatarFone(Fone));
     end;
     Connection.WriteStrData('', IE);
     Connection.WriteStrData('', IM);
@@ -678,7 +678,7 @@ begin
   begin
 //    Connection.WriteStrData('', IntToStr(Versao));
     Connection.WriteStrData('', OnlyNumber(Id));
-    Connection.WriteStrData('', NotaUtil.FormatarChaveAcesso(Id));
+    Connection.WriteStrData('', FormatarChaveAcesso(Id));
   end;
 
   with FNFe.Ide do
@@ -690,8 +690,8 @@ begin
     Connection.WriteStrData('', inttostr(Modelo));
     Connection.WriteStrData('', inttostr(Serie));
     Connection.WriteStrData('', FormatarNumeroDocumentoFiscal(inttostr(NNF)));
-    Connection.WriteStrData('', FormatDate(datetostr(DEmi)));
-    Connection.WriteStrData('', IfThen(NaoEstaVazio(datetostr(DSaiEnt)), FormatDate(datetostr(DSaiEnt))));
+    Connection.WriteStrData('', FormatDateBr((DEmi)));
+    Connection.WriteStrData('', IfThen(NaoEstaVazio(datetostr(DSaiEnt)), FormatDateBr((DSaiEnt))));
     Connection.WriteStrData('', IfThen(TpNF=tnEntrada,'0','1'));
     Connection.WriteStrData('', inttostr(CMunFG));
     Connection.WriteStrData('', IfThen(TpImp=tiRetrato,'1','2'));
@@ -724,7 +724,7 @@ begin
   with FNFe.Cobr.Dup[Connection.DataIndex] do
   begin
     Connection.WriteStrData('', NDup);
-    Connection.WriteStrData('', FormatDate(datetostr(DVenc)));
+    Connection.WriteStrData('', FormatDateBr((DVenc)));
     Connection.WriteFloatData('', StringToFloatDef(floattostr(VDup),0));
   end;
 end;

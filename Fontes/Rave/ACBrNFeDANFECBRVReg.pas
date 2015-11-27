@@ -49,7 +49,10 @@ unit ACBrNFeDANFECBRVReg;
 interface
 
 uses
-  SysUtils, Classes, ACBrNFeDANFERaveCB;
+  SysUtils, Classes, ACBrNFeDANFERaveCB
+  {$IFDEF FPC}
+     , LResources
+  {$ENDIF} ;
 
 procedure Register;
 
