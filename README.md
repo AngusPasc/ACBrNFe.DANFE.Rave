@@ -11,7 +11,7 @@ ACBrNFe.DANFE.Rave
 
 - Testes feitos com Delphi XE2.
 
-**Instruções para compilar o ACBr com DANFE em Rave**
+### Instruções para compilar o ACBr com DANFE em Rave ###
 
 - Copiar a pasta "Fontes" deste projeto dentro da pasta "..\ACBr\Fontes\ACBrDFe\ACBrNFe\DANFE\NFe\" da pasta ACBr.
 - Copiar a pasta "Pacotes" deste projeto dentro da pasta "..\ACBr\Pacotes\Delphi\ACBrDFe\ACBrNFe\DANFE\NFe\" da pasta ACBr.
@@ -19,13 +19,13 @@ ACBrNFe.DANFE.Rave
 - Abrir um dos arquivos *.dpk (ACBr_NFeDanfeRV.dpk ou ACBr_NFeDanfeRVCodeBase.dpk) da pasta "..\ACBr\Pacotes\Delphi\ACBrDFe\ACBrNFe\DANFE\NFe\Rave".
 - Compilar e instalar.
 
-**Utilização**
+### Utilização ### 
 
 - Duas formas de utilização são possíveis com o componente:
   - ACBrNFeDANFERaveCB (Rave Code Base, sem o uso do arquivo de relatório .rav)
   - ACBrNFeDANFERave (com o uso do arquivo de relatório .rav). 
 
-**Exemplo**
+### Exemplo ### 
 
 Imprimir a DANFE:
 ```shell
@@ -40,3 +40,9 @@ ACBrNFe1.NotasFiscais.Clear;
 ACBrNFe1.NotasFiscais.LoadFromFile("..\ArquivosXML\12345678901234567890123456789012345678901234-nfe.xml");
 ACBrNFe1.NotasFiscais.ImprimirPDF;
 ```
+
+### Screenshots ### 
+
+![Exemplo](Screenshots/Software.png)
+
+![Danfe](Screenshots/Danfe.png)
