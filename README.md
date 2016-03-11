@@ -13,6 +13,7 @@
   * Incluir no library path do Delphi o path: "..\ACBr\Fontes\ACBrDFe\ACBrNFe\DANFE\NFe\Rave"
   * Abrir um dos arquivos *.dpk (ACBr_NFeDanfeRV.dpk ou ACBr_NFeDanfeRVCodeBase.dpk) da pasta "..\ACBr\Pacotes\Delphi\ACBrDFe\ACBrNFe\DANFE\NFe\Rave".
   * Compilar e instalar.
+  * Ao executar o exemplo deste projeto utilize a opção "Build All Projects".
 
 ## Utilização
 
