@@ -252,7 +252,7 @@ begin
      CenterX:=XPos+((PageWidth-MarginRight-XPos)/2);
      case Ide.tpEmis of
         teDPEC: begin
-                  PrintCenter('DANFE impresso em contingência - DPEC regularmente ',CenterX);
+                  PrintCenter('DANFE impresso em contingência - EPEC regularmente ',CenterX);
                   NewLine;
                   PrintCenter('recebida pela Receita Federal do Brasil',CenterX);
                 end;
@@ -510,7 +510,7 @@ begin
               Box([fsLeft,fsTop],PosX,YPos,aWidth,aHeigthPadrao,'PROTOCOLO DE AUTORIZAÇÃO DE USO',aProtocolo,taCenter,True);
             end
             else
-              Box([fsLeft,fsTop],PosX,YPos,aWidth,aHeigthPadrao,'NÚMERO DE REGISTRO DPEC',aProtocolo,taCenter,True);
+              Box([fsLeft,fsTop],PosX,YPos,aWidth,aHeigthPadrao,'NÚMERO DE REGISTRO EPEC',aProtocolo,taCenter,True);
          end;
       end;
 
@@ -1584,7 +1584,7 @@ begin
      begin
         case Ide.tpEmis of
            teDPEC: begin
-                     wInfCpl:='DANFE impresso em contingência - DPEC regularmente recebida pela Receita Federal do Brasil';
+                     wInfCpl:='DANFE impresso em contingência - EPEC regularmente recebida pela Receita Federal do Brasil';
                    end;
            teFSDA,
            teContingencia,
